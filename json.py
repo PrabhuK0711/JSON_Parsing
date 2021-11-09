@@ -20,12 +20,13 @@ def populate_data():
             visit_timestamp = int(data['visitStartTime'])
             visit_timestamp = datetime.utcfromtimestamp(visit_timestamp).strftime('%Y-%m-%d %H:%M:%S')
             visit_dict['visit_start_time'] = visit_timestamp
-
+            unique_id = (visit_dict['full_visitor_id'], visit_dict['visit_id'])
+            # visit_dict['unique_id'] = unique_id
             # Loop over the sub elements to get hits info
             for hit in data['hits']:
                 hits_dict = {}
                 # Below can be inserted to uniquely identify the hits records
-                # hits_dict['unique_id'] = visit_dict['full_visitor_id'] + visit_dict['visit_id']
+                # hits_dict['unique_id'] = unique_id
                 hits_dict['hit_number'] = hit['hitNumber']
                 hits_dict['hit_type'] = hit['type']
                 millis = int(hit['time'])
