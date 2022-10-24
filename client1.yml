@@ -1,0 +1,6 @@
+SQL: |
+  select 'a' as letter;
+FREQUENCY: DAILY
+OUTPUT_FILE:
+  name_prefix: test_a
+  format: CSV
